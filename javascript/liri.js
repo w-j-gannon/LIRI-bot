@@ -15,22 +15,26 @@ var action = process.argv[2];
 var query = process.argv.slice(3).join("+");
 
 // switch case to determine action
-switch (action) {
-    case "concert-this":
-        concertThis();
-        break;
-    case "spotify-this-song":
-        spotifyThis();
-        break;
-    case "movie-this":
-        movieThis();
-        break;
-    case "do-what-it-says":
-        doWhat();
-        break;
-    default:
-        console.log("Invalid command");
+function userQuery() {
+    switch (action) {
+        case "concert-this":
+            concertThis();
+            break;
+        case "spotify-this-song":
+            spotifyThis();
+            break;
+        case "movie-this":
+            movieThis();
+            break;
+        case "do-what-it-says":
+            doWhat();
+            break;
+        default:
+            console.log("Invalid command");
+    };
 };
+
+userQuery();
 
 // ACTION REQUESTS
 // concert-this axios request
@@ -39,7 +43,7 @@ function concertThis() {
     axios
         .get(search)
         .then(function(response) {
-            console.log("Upcoming Shows:\n--------------------\n--------------------")
+            console.log("\nUpcoming Shows:\n--------------------\n--------------------")
             for (i = 1; i < response.data.length; i++) {
                 var venue = response.data[i].venue.name;
                 var city = response.data[i].venue.city;
@@ -67,7 +71,7 @@ function spotifyThis(){
             }
             // if there is a response array greater than 0
             if (response.tracks.items.length > 0){
-                console.log("Tracks on Spotify:")
+                console.log("\nTracks on Spotify:")
                 response.tracks.items.forEach(function(spot){
                     console.log("--------------------------\n");
                     console.log(spot.name);
@@ -96,7 +100,8 @@ function movieThis() {
             .then(function (response) {
                 //if a response comes back
                 if (response) {
-                    console.log("\n--------------------------\n");
+                    console.log("\nOMDB Movie Info:\n")
+                    console.log("--------------------------\n");
                     console.log("Title: " + response.data.Title);
                     console.log("Release Year: " + response.data.Year);
                     console.log("IMDB Rating: " + response.data.Ratings[0].Value);
@@ -118,3 +123,22 @@ function movieThis() {
         movieThis("Big");
     }
 };
+
+// do what it says
+function doWhat(){
+    fs.readFile("../random.txt", "utf8", function(err, data) {
+        if (err) {
+            return console.log(err);
+        };
+
+        console.log(data);
+        /*var info = data.split(",");
+
+        var action = info[0].trim().toString();
+
+        var query = info[1].trim();
+        
+        userQuery();*/
+
+    })
+}
