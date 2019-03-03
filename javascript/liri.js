@@ -1,10 +1,12 @@
 //LIRI-APP
 // dotenv for environment variables
 require("dotenv").config();
+
 // spotify
 var keys = require("./keys.js");
 var Spotify = require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
+
 // other dependancies
 const axios = require("axios");
 var moment = require("moment");
@@ -125,20 +127,21 @@ function movieThis() {
 };
 
 // do what it says
-function doWhat(){
-    fs.readFile("../random.txt", "utf8", function(err, data) {
+function doWhat() {
+    fs.readFile("./../random.txt", "utf8", function(err, data) {
         if (err) {
             return console.log(err);
         };
 
-        console.log(data);
-        /*var info = data.split(",");
+        console.log("\nQuery from text file: " + data);
 
-        var action = info[0].trim().toString();
+        var info = data.split(",");
 
-        var query = info[1].trim();
+        action = info[0].trim().toString();
+
+        query = info[1].trim();
         
-        userQuery();*/
+        userQuery()
 
     })
-}
+};
