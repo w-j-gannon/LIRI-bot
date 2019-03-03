@@ -85,3 +85,36 @@ function spotifyThis(){
         spotifyThis("The Sign, Ace of Base");
     }
 };
+
+// OMDB - movie-this
+function movieThis() {
+    // if a title is entered, query the api
+    if (query) {
+        // search omdb with axios
+        axios
+            .get("https://www.omdbapi.com/?t="+ query +"&y=&plot=short&apikey=trilogy")
+            .then(function (response) {
+                //if a response comes back
+                if (response) {
+                    console.log("\n--------------------------\n");
+                    console.log("Title: " + response.data.Title);
+                    console.log("Release Year: " + response.data.Year);
+                    console.log("IMDB Rating: " + response.data.Ratings[0].Value);
+                    console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value);
+                    console.log("Country: "+response.data.Country);
+                    console.log("Language: " + response.data.Language);
+                    console.log("Plot Summary: " + response.data.Plot);
+                    console.log("Cast: " + response.data.Actors);
+                    console.log("\n--------------------------\n");   
+                } else {
+                    movieThis("Big");
+                }
+            })
+                // catch/log any errors
+                .catch(function (error) {
+                    console.log(error);
+                });
+    } else {
+        movieThis("Big");
+    }
+};
