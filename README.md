@@ -1,6 +1,6 @@
 # LIRI-bot
 
-## A Node.js app used to query several web APIs for relevant data.
+#### *A Node.js app used to query several web APIs for relevant data.*
 4 query options are available:
 
 
