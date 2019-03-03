@@ -23,6 +23,6 @@ Enter a movie title and the OMDB API will return info about it.
 
 
 ## Do What It Says
-This command will read a command and query from a text file and then return from the correct API
+This will read a command and query from a text file and then return from the correct API.
 
 ![do what](https://github.com/w-j-gannon/LIRI-bot/blob/master/images/do-what.PNG)
