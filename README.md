@@ -17,11 +17,21 @@ Enter a song title and the Spotify API will return tracks with info and a link t
 ![spotify-this](https://github.com/w-j-gannon/LIRI-bot/blob/master/images/spotify-this.PNG)
 
 
+If no song is specified, results for *The Sign* by Ace of Base will be returned.
+
+![spotify this Ace of Base](https://github.com/w-j-gannon/LIRI-bot/blob/master/images/spotify-this-Sign.PNG)
+
+
 
 ## Movie This
 Enter a movie title and the OMDB API will return info about it.
 
 ![movie this](https://github.com/w-j-gannon/LIRI-bot/blob/master/images/movie-this.PNG)
+
+
+If no movie is specified, results for *Big* will be returned.
+
+![movie this Big](https://github.com/w-j-gannon/LIRI-bot/blob/master/images/movie-this-big.PNG)
 
 
 
