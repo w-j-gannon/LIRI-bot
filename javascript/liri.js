@@ -83,12 +83,16 @@ function spotifyThis(){
                 });
             // if 0 responses, show the sign
             } else {
-                spotifyThis("The Sign, Ace of Base");
+                query = "The Sign Ace of Base";
+                console.log("\nNo results returned, listen to 'The Sign'.");
+                spotifyThis();
             }
         });
     // if no query entered, show the sign
     } else {
-        spotifyThis("The Sign, Ace of Base");
+        query = "The Sign Ace of Base";
+        console.log("\nNo search term found, listen to 'The Sign'.");
+        spotifyThis();
     }
 };
 
@@ -114,7 +118,9 @@ function movieThis() {
                     console.log("Cast: " + response.data.Actors);
                     console.log("\n--------------------------\n");   
                 } else {
-                    movieThis("Big");
+                    query = "mr robot";
+                    console.log("\nNo movie found, showing information for BIG");
+                    movieThis();
                 }
             })
                 // catch/log any errors
@@ -122,7 +128,9 @@ function movieThis() {
                     console.log(error);
                 });
     } else {
-        movieThis("Big");
+        query = "Big";
+        console.log("\nNo movie entered, showing information for BIG");
+        movieThis();
     }
 };
 
@@ -141,7 +149,7 @@ function doWhat() {
 
         query = info[1].trim();
         
-        userQuery()
+        userQuery();
 
     })
 };
